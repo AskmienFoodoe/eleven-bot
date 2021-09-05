@@ -1,0 +1,33 @@
+{
+  "name": "eleven-bot",
+  "version": "0.1.0",
+  "description": "eleven erbs and spices",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node index.ts",
+    "add-commands": "ts-node commands.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AskmienFoodoe/eleven-bot.git"
+  },
+  "author": "AskmienFoodoe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AskmienFoodoe/eleven-bot/issues"
+  },
+  "homepage": "https://github.com/AskmienFoodoe/eleven-bot#readme",
+  "dependencies": {
+    "@discordjs/builders": "^0.6.0",
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "axios": "^0.21.1",
+    "discord-api-types": "^0.22.0",
+    "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0",
+    "erbs-client": "^1.7.0",
+    "node-html-parser": "^4.1.4",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2"
+  }
+}
