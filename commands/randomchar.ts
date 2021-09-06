@@ -8,7 +8,10 @@ export const randomchar = async(interaction: CommandInteraction, erbsClient: ErB
     const charId = (ranChar.code + 1000).toString().slice(1)
     const embed = new MessageEmbed()
         .setTitle(`You got ${ranChar.name}!`)
-        .setThumbnail(`https://dak.gg/bser/images/assets/character/community/${charId}.png`)
         .setImage(`https://dak.gg/bser/images/assets/character/full/${charId}.png`)
+    
+    if (ranChar.code === 30) {
+        embed.setDescription('Hey, that\'s me! <:Eleven_P:884237657020960828>')
+    }
     await interaction.reply({ embeds: [embed] })
 }

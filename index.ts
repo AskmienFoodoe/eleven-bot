@@ -22,17 +22,17 @@ client.on('interactionCreate', async interaction => {
     try {
         switch(commandName) {
             case 'ping':
-                await interaction.reply('Pong!');
+                return await interaction.reply('Pong!');
             case 'server':
-                await interaction.reply(`Server name: ${interaction.guild?.name}\nTotal members: ${interaction.guild?.memberCount}`);
+                return await interaction.reply(`Server name: ${interaction.guild?.name}\nTotal members: ${interaction.guild?.memberCount}`);
             case 'user':
-                await interaction.reply(`Your tag: ${interaction.user.tag}\nYour id: ${interaction.user.id}`);
+                return await interaction.reply(`Your tag: ${interaction.user.tag}\nYour id: ${interaction.user.id}`);
             case 'currentplayers': 
-                await currentplayers(interaction)
+                return await currentplayers(interaction)
             case 'randomchar':
-                await randomchar(interaction, erbsClient)
+                return await randomchar(interaction, erbsClient)
             default:
-                return
+                return await interaction.reply('Seems like that command hasn\'t been implemented yet, try again later!');
         }
     } catch(err: any) {
         console.log(err.message)
