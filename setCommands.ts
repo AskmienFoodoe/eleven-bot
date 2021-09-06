@@ -9,7 +9,8 @@ const commands = [
 	new SlashCommandBuilder().setName('ping').setDescription('Replies with pong!'),
 	new SlashCommandBuilder().setName('server').setDescription('Replies with server info!'),
 	new SlashCommandBuilder().setName('user').setDescription('Replies with user info!'),
-    new SlashCommandBuilder().setName('currentplayers').setDescription('Show the number of people currently playing erbs')
+    new SlashCommandBuilder().setName('currentplayers').setDescription('Show the number of people currently playing erbs.'),
+	new SlashCommandBuilder().setName('randomchar').setDescription('Select a random character from the roster.')
 ].map(command => command.toJSON());
 
 const rest = new REST({ version: '9' }).setToken(process.env.TOKEN ?? '');

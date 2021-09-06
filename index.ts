@@ -1,12 +1,14 @@
 import axios from 'axios';
 import { Client, Intents } from 'discord.js'
 import { config } from 'dotenv'
-import { parse } from 'node-html-parser'
+import { ErBsClient } from 'erbs-client';
+import { currentplayers, randomchar } from './commands';
 
 config()
 
 // Create a new client instance
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_PRESENCES] });
+export const erbsClient = new ErBsClient(process.env.ERBS_KEY)
 
 // When the client is ready, run this code (only once)
 client.once('ready', () => {
@@ -25,18 +27,10 @@ client.on('interactionCreate', async interaction => {
                 await interaction.reply(`Server name: ${interaction.guild?.name}\nTotal members: ${interaction.guild?.memberCount}`);
             case 'user':
                 await interaction.reply(`Your tag: ${interaction.user.tag}\nYour id: ${interaction.user.id}`);
-            case 'currentplayers': {
-                const resp = (
-                    await axios.get(
-                        'https://steamcharts.com/app/1049590', 
-                        {headers: {
-                            Accept: '*/*'
-                        }}
-                    )
-                ).data as string
-                const num = parse(resp).querySelector('.timeago').parentNode.querySelector('span').innerText
-                await interaction.reply(`There are currently ${num} players online!`)
-            }
+            case 'currentplayers': 
+                await currentplayers(interaction)
+            case 'randomchar':
+                await randomchar(interaction, erbsClient)
             default:
                 return
         }

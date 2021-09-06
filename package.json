@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node index.ts",
-    "add-commands": "ts-node commands.ts"
+    "setCommands": "ts-node setCommands.ts"
   },
   "engines": {
     "node": "16.7.x"
