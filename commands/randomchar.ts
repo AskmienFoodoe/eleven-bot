@@ -20,6 +20,8 @@ export const randomchar = async(interaction: CommandInteraction, erbsClient: ErB
         )
         if (resp.data.message === 'Success') {
             freeChars = resp.data.freeCharacters
+        }
+        if (freeChars.length) {
             charData = charData.filter(char => freeChars.includes(char.code))
         }
     }
