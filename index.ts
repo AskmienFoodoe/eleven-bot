@@ -30,11 +30,11 @@ client.on('interactionCreate', async interaction => {
             case 'currentplayers': 
                 return await currentplayers(interaction)
             case 'randomchar':
-                return await randomchar(interaction, erbsClient)
+                return await randomchar(interaction, erbsClient, 1, interaction.options.getBoolean('free-characters')!)
             case 'assembleduo':
-                return await randomchar(interaction, erbsClient, 2)
+                return await randomchar(interaction, erbsClient, 2, interaction.options.getBoolean('free-characters')!)
             case 'assemblesquad':
-                return await randomchar(interaction, erbsClient, 3)
+                return await randomchar(interaction, erbsClient, 3, interaction.options.getBoolean('free-characters')!)
             default:
                 return await interaction.reply('Seems like that command hasn\'t been implemented yet, try again later!');
         }
